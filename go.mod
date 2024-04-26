@@ -4,6 +4,7 @@ go 1.22.2
 
 require (
 	github.com/gin-gonic/gin v1.9.1
+	github.com/iancoleman/strcase v0.3.0
 	go.uber.org/zap v1.27.0
 )
 
