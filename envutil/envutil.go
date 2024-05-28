@@ -4,6 +4,15 @@ import (
 	"os"
 	"strconv"
 )
+func GetPathEnvWithSlash(env string) string {
+	path := os.Getenv(env)
+	if path == "" {
+		return ""
+	} else if path[len(path)-1:] != "/" {
+		return path + "/"
+	}
+	return path
+}
 
 func GetFloat64EnvOrDefault(variable string, defaultValue float64) float64 {
 	floatenv, err := strconv.ParseFloat(os.Getenv(variable), 64)
