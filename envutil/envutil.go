@@ -14,6 +14,16 @@ func GetPathEnvWithSlash(env string) string {
 	return path
 }
 
+func GetPathEnvWithSlashOrDefault(env string, defaultValue string) string {
+	path := os.Getenv(env)
+	if path == "" {
+		return defaultValue
+	} else if path[len(path)-1:] != "/" {
+		return path + "/"
+	}
+	return path
+}
+
 func GetFloat64EnvOrDefault(variable string, defaultValue float64) float64 {
 	floatenv, err := strconv.ParseFloat(os.Getenv(variable), 64)
 	if err != nil {
